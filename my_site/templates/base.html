@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="my_site">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Roboto&display=swap" rel="stylesheet">
+    <title>{{ title }}</title>
+    {% block css_additional %}
+    {% endblock %}
+</head>
+<body>
+    <div class="bodydiv">
+        <ul>
+            {% for part in menu %}
+                <li>
+                    <p><h1><a href="{% url part.url_name %}">{{ part.name }}</a></h1></p>
+                    {% if not forloop.last %}<hr>{% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% block content %} {% endblock %}
+</body>
+</html>

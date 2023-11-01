@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1>{{ info }}</h1>
+{{ title }}
+<ul>
+    {% for art in articles %}
+    <li>
+        {% if art.is_publ %}
+            <p><a href="post/{{ art.id }}">{{ art.name }}</a></p>
+        {% else %}
+            <p> {{ art.name }}</p>
+        {% endif %}
+    </li>
+    {% endfor %}
+
+<h2> Article views: {{ view }} </h2>
+</ul>
+{% endblock %}
